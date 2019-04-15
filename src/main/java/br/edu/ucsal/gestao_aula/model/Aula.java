@@ -16,24 +16,21 @@ public class Aula {
 	@Id
 	@GeneratedValue
 	private Long id;
-
-	@Column(name = "SALA")
+/*
 	@OneToOne(mappedBy = "aula")
-	private Sala sala;
-
-	@Column(name = "MATERIA_CURSO")
+	private Sala sala;*/
+/*
 	@OneToOne(mappedBy = "aula")
 	private MateriaCurso materiaCurso;
-
+*/
 	@Column(name = "DATA_INICIO")
 	private Timestamp dataInicio;
 
 	@Column(name = "DATA_FIM")
 	private Timestamp dataFim;
 
-	@Column(name = "IMPREVISTO")
-	@OneToOne(mappedBy = "aula")
-	private Imprevisto imprevisto;
+	//@OneToOne(mappedBy = "aula")
+	//private Imprevisto imprevisto;
 
 	public Long getId() {
 		return id;
@@ -42,15 +39,15 @@ public class Aula {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+/*
 	public Sala getSala() {
 		return sala;
 	}
 
 	public void setSala(Sala sala) {
 		this.sala = sala;
-	}
-
+	}*/
+/*
 	public MateriaCurso getMateriaCurso() {
 		return materiaCurso;
 	}
@@ -58,7 +55,7 @@ public class Aula {
 	public void setMateriaCurso(MateriaCurso materiaCurso) {
 		this.materiaCurso = materiaCurso;
 	}
-
+*/
 	public Timestamp getDataInicio() {
 		return dataInicio;
 	}
@@ -74,7 +71,7 @@ public class Aula {
 	public void setDataFim(Timestamp dataFim) {
 		this.dataFim = dataFim;
 	}
-
+/*
 	public Imprevisto getImprevisto() {
 		return imprevisto;
 	}
@@ -82,5 +79,5 @@ public class Aula {
 	public void setImprevisto(Imprevisto imprevisto) {
 		this.imprevisto = imprevisto;
 	}
-
+*/
 }

@@ -1,9 +1,9 @@
 package br.edu.ucsal.gestao_aula.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -16,11 +16,11 @@ public class MateriaCurso {
 	private Long id;
 
 	@ManyToOne
-	@Column(name="MATERIA")
+	@JoinColumn
 	private Materia materia;
 
 	@ManyToOne
-	@Column(name="CURSO")
+	@JoinColumn
 	private Curso curso;
 	
 	public Long getId() {

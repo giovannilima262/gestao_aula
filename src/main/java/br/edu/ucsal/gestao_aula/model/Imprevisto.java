@@ -24,7 +24,7 @@ public class Imprevisto {
 
 	@Column(name = "DESCRICAO", length = 100)
 	private String descricao;
-
+	
 	public Long getId() {
 		return id;
 	}
