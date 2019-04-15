@@ -14,6 +14,7 @@ import br.edu.ucsal.gestao_aula.enums.StatusAulaEnum;
 @Table(name = "IMPREVISTO")
 public class Imprevisto {
 
+	
 	@Id
 	@GeneratedValue
 	private Long id;
