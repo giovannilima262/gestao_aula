@@ -16,4 +16,9 @@ export class PessoaService {
   filtrar(pessoa) {
     return this.data.post(this.url + "/filtrar", pessoa);
   }
+
+  deletar(idPessoa) {
+    return this.data.delete(this.url + "/" + idPessoa);
+  }
+
 }

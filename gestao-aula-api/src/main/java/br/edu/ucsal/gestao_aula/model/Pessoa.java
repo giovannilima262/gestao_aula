@@ -7,6 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import br.edu.ucsal.gestao_aula.enums.TipoPessoaEnum;
 
@@ -18,17 +19,17 @@ public class Pessoa {
 	@GeneratedValue
 	private Long id;
 
-	@Column(name = "NOME", length = 100)
+	@Column(name = "NOME", length = 100, nullable = false)
 	private String nome;
 
-	@Column(name = "MATRICULA", length = 20)
+	@Column(name = "MATRICULA", length = 20, unique = true, nullable = false)
 	private String matricula;
 
-	@Column(name = "CPF", length = 11)
+	@Column(name = "CPF", length = 11, nullable = false)
 	private String cpf;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name="TIPO_PESSOA")
+	@Column(name="TIPO_PESSOA", nullable = false)
 	private TipoPessoaEnum tipo;
 
 	public Long getId() {

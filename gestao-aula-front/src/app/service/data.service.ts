@@ -18,11 +18,11 @@ export class DataService {
 
     constructor(private httpClient: HttpClient) { }
 
-    get(url) {
+    get(url): Observable<any> {
         return this.httpClient.get<JSON>(this.apiUrl + url, httpOptions);
     }
 
-    post(url, body) {
+    post(url, body): Observable<any> {
         return this.httpClient.post<JSON>(this.apiUrl + url, body, httpOptions);
     }
 

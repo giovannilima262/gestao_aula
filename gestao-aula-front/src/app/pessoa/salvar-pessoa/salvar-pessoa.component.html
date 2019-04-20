@@ -1,26 +1,27 @@
-<form [formGroup]="formGroup">
+<form [formGroup]="formGroup" (ngSubmit)=salvar()>
   <mat-form-field appearance="outline" class="espaco">
     <mat-label>Nome</mat-label>
-    <input matInput formControlName="nome" placeholder="João Lucas">
+    <input matInput formControlName="nome" placeholder="João Lucas" required>
   </mat-form-field>
   <mat-form-field appearance="outline" class="espaco">
     <mat-label>Matrícula</mat-label>
-    <input matInput formControlName="matricula" placeholder="00000000">
+    <input matInput formControlName="matricula" placeholder="00000000" required>
   </mat-form-field>
   <mat-form-field appearance="outline" class="espaco">
-      <mat-label>CPF</mat-label>
-      <input matInput formControlName="cpf" placeholder="000.000.000-00">
-    </mat-form-field>
+    <mat-label>CPF</mat-label>
+    <input matInput formControlName="cpf" placeholder="000.000.000-00" required>
+  </mat-form-field>
   <mat-form-field appearance="outline" class="espaco">
     <mat-label>Tipo</mat-label>
-    <mat-select appearance="outline" formControlName="tipo" name="tipo">
+    <mat-select appearance="outline" formControlName="tipo" name="tipo" required>
+      <mat-option>None</mat-option>
       <mat-option *ngFor="let key of keysTipos" [value]="key">
         {{tipos[key]}}
       </mat-option>
     </mat-select>
   </mat-form-field>
+  <div mat-dialog-actions class="center">
+    <button mat-button cdkFocusInitial mat-raised-button color="primary" type="submit">Salvar</button>
+    <button mat-button mat-stroked-button [mat-dialog-close] color="primary">Cancelar</button>
+  </div>
 </form>
-<div mat-dialog-actions class="center">
-  <button mat-button cdkFocusInitial mat-raised-button color="primary" (click)="salvar()">Salvar</button>
-  <button mat-button mat-stroked-button [mat-dialog-close] color="primary">Cancelar</button>
-</div>

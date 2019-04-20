@@ -17,7 +17,7 @@ public class Curso {
 	@GeneratedValue
 	private Long id;
 
-	@Column(name = "NOME", length = 100)
+	@Column(name = "NOME", length = 100, nullable = false)
 	private String nome;
 
 	@OneToMany(mappedBy = "curso")

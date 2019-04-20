@@ -1,5 +1,5 @@
 import { DataService } from './service/data.service';
-import { SalvarPessoaComponentDialog } from './pessoa/salvar-pessoa/salvar-pessoa.component';
+import { SalvarPessoaComponent } from './pessoa/salvar-pessoa/salvar-pessoa.component';
 import { ConsultarPessoaComponent } from './pessoa/consultar-pessoa/consultar-pessoa.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,13 +17,24 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PessoaService } from './service/pessoa.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import { MatIconModule } from '@angular/material/icon';
+import { ConsultarMateriaComponent } from './materia/consultar-materia/consultar-materia.component';
+import { SalvarMateriaComponent } from './materia/salvar-materia/salvar-materia.component';
+import { ConsultarCursoComponent } from './curso/consultar-curso/consultar-curso.component';
+import { SalvarCursoComponent } from './curso/salvar-curso/salvar-curso.component';
+import { MateriaService } from './service/materia.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConsultarPessoaComponent,
-    SalvarPessoaComponentDialog,
+    SalvarPessoaComponent,
+    ConsultarMateriaComponent,
+    SalvarMateriaComponent,
+    ConsultarCursoComponent,
+    SalvarCursoComponent,
   ],
   imports: [
     MatDialogModule,
@@ -41,13 +52,19 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     MatSelectModule,
     MatCardModule,
     HttpClientModule,
-    
+    ToastrModule.forRoot(),
+    MatIconModule
+
   ],
   providers: [
     PessoaService,
-    DataService    
+    DataService,
+    MateriaService
   ],
   bootstrap: [AppComponent],
-  entryComponents: [SalvarPessoaComponentDialog]
+  entryComponents: [
+    SalvarPessoaComponent,
+    SalvarMateriaComponent
+  ]
 })
 export class AppModule { }

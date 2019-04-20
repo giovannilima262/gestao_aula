@@ -1,4 +1,4 @@
 export enum TipoPessoaEnum {
-    PROFESSOR = "Pessoa",
+    PROFESSOR = "Professor",
     ALUNO = "Aluno"
 }

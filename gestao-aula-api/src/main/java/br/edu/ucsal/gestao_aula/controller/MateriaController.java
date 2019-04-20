@@ -1,7 +1,8 @@
 package br.edu.ucsal.gestao_aula.controller;
 
+import br.edu.ucsal.gestao_aula.model.Materia;
 import br.edu.ucsal.gestao_aula.model.Pessoa;
-import br.edu.ucsal.gestao_aula.service.PessoaService;
+import br.edu.ucsal.gestao_aula.service.MateriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,26 +12,26 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/api/pessoa")
-public class PessoaController {
+@RequestMapping("/api/materia")
+public class MateriaController {
 
     @Autowired
-    private PessoaService pessoaService;
+    private MateriaService materiaService;
 
     @PostMapping("filtrar")
-    public ResponseEntity<List<Pessoa>> filtrarPessoa(@RequestBody Pessoa pessoa) {
-        return ResponseEntity.ok(pessoaService.filtrar(pessoa));
+    public ResponseEntity<List<Materia>> filtrarPessoa(@RequestBody Materia materia) {
+        return ResponseEntity.ok(materiaService.filtrar(materia));
     }
 
     @PostMapping("/")
-    public ResponseEntity<Object> salvar(@RequestBody Pessoa pessoa) {
-        pessoaService.salvar(pessoa);
+    public ResponseEntity<Object> salvar(@RequestBody Materia materia) {
+        materiaService.salvar(materia);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deletar(@PathVariable Long id) {
-        pessoaService.deletar(id);
+        materiaService.deletar(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
