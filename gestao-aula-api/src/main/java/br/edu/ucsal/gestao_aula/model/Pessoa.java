@@ -29,7 +29,7 @@ public class Pessoa {
 
 	@Enumerated(EnumType.STRING)
 	@Column(name="TIPO_PESSOA")
-	private TipoPessoaEnum tipoPessoaEnum;
+	private TipoPessoaEnum tipo;
 
 	public Long getId() {
 		return id;
@@ -63,12 +63,12 @@ public class Pessoa {
 		this.cpf = cpf;
 	}
 
-	public TipoPessoaEnum getTipoPessoaEnum() {
-		return tipoPessoaEnum;
+	public TipoPessoaEnum getTipo() {
+		return tipo;
 	}
 
-	public void setTipoPessoaEnum(TipoPessoaEnum tipoPessoaEnum) {
-		this.tipoPessoaEnum = tipoPessoaEnum;
+	public void setTipo(TipoPessoaEnum tipo) {
+		this.tipo = tipo;
 	}
 
 }

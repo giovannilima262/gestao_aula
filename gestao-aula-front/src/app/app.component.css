@@ -1,0 +1,23 @@
+.example-icon {
+    padding: 0 14px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.mat-toolbar.mat-primary {
+    background: #3f51b5;
+    color: #fff;
+}
+
+.title {
+    font-size: 17pt;
+}
+
+.corpo {
+    margin-top: 60px;
+    margin-bottom: 40px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
