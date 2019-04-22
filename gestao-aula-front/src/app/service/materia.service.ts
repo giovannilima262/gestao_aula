@@ -7,7 +7,11 @@ export class MateriaService {
   private url = '/api/materia';
   constructor(
     private data: DataService,
-    ) { }
+  ) { }
+
+  findAll(): Observable<any> {
+    return this.data.get(this.url + "/");
+  }
 
   salvar(materia): Observable<any> {
     return this.data.post(this.url + "/", materia);

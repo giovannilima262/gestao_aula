@@ -1,13 +1,10 @@
 package br.edu.ucsal.gestao_aula.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "CURSO")
@@ -20,7 +17,8 @@ public class Curso {
 	@Column(name = "NOME", length = 100, nullable = false)
 	private String nome;
 
-	@OneToMany(mappedBy = "curso")
+	@JsonIgnore
+	@OneToMany(mappedBy = "curso", fetch = FetchType.LAZY)
 	private List<MateriaCurso> materiaCursoList;
 
 	public Long getId() {

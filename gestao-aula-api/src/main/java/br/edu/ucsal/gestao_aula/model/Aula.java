@@ -1,5 +1,7 @@
 package br.edu.ucsal.gestao_aula.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -23,11 +25,14 @@ public class Aula {
 	@OneToOne
 	private MateriaCurso materiaCurso;
 
-	@Column(name = "DATA_INICIO")
-	private Timestamp dataInicio;
+	@Column(name = "DATA")
+	private Timestamp data;
 
-	@Column(name = "DATA_FIM")
-	private Timestamp dataFim;
+	@Column(name = "HORARIO_INICIO")
+	private String horarioInicio;
+
+	@Column(name = "HORARIO_FIM")
+	private String horarioFim;
 
 	@OneToOne
 	private Imprevisto imprevisto;
@@ -56,20 +61,12 @@ public class Aula {
 		this.materiaCurso = materiaCurso;
 	}
 
-	public Timestamp getDataInicio() {
-		return dataInicio;
+	public Timestamp getData() {
+		return data;
 	}
 
-	public void setDataInicio(Timestamp dataInicio) {
-		this.dataInicio = dataInicio;
-	}
-
-	public Timestamp getDataFim() {
-		return dataFim;
-	}
-
-	public void setDataFim(Timestamp dataFim) {
-		this.dataFim = dataFim;
+	public void setData(Timestamp data) {
+		this.data = data;
 	}
 
 	public Imprevisto getImprevisto() {
@@ -78,6 +75,22 @@ public class Aula {
 
 	public void setImprevisto(Imprevisto imprevisto) {
 		this.imprevisto = imprevisto;
+	}
+
+	public String getHorarioInicio() {
+		return horarioInicio;
+	}
+
+	public void setHorarioInicio(String horarioInicio) {
+		this.horarioInicio = horarioInicio;
+	}
+
+	public String getHorarioFim() {
+		return horarioFim;
+	}
+
+	public void setHorarioFim(String horarioFim) {
+		this.horarioFim= horarioFim;
 	}
 
 }

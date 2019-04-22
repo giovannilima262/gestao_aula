@@ -1,0 +1,24 @@
+<form [formGroup]="formGroup" (ngSubmit)=salvar()>
+  <mat-form-field appearance="outline" class="espaco">
+    <mat-label>Matéria</mat-label>
+    <mat-select appearance="outline" formControlName="materia" name="materia" required>
+      <mat-option>Todos</mat-option>
+      <mat-option *ngFor="let materia of materias" [value]="materia.id">
+        {{materia.nome}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="espaco">
+    <mat-label>Curso</mat-label>
+    <mat-select appearance="outline" formControlName="curso" name="curso" required>
+      <mat-option>Todos</mat-option>
+      <mat-option *ngFor="let curso of cursos" [value]="curso.id">
+        {{curso.nome}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div mat-dialog-actions class="center">
+    <button mat-button cdkFocusInitial mat-raised-button color="primary" type="submit">Salvar</button>
+    <button mat-button mat-stroked-button [mat-dialog-close] color="primary">Cancelar</button>
+  </div>
+</form>

@@ -1,3 +1,10 @@
-<p>
-  salvar-curso works!
-</p>
+<form [formGroup]="formGroup" (ngSubmit)=salvar()>
+  <mat-form-field appearance="outline" class="espaco">
+    <mat-label>Nome</mat-label>
+    <input matInput formControlName="nome" placeholder="Engenharia de Software" required>
+  </mat-form-field>
+  <div mat-dialog-actions class="center">
+    <button mat-button cdkFocusInitial mat-raised-button color="primary" type="submit">Salvar</button>
+    <button mat-button mat-stroked-button [mat-dialog-close] color="primary">Cancelar</button>
+  </div>
+</form>

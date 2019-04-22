@@ -23,7 +23,7 @@ public class Sala {
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "TIPO_SALA")
-	private TipoSalaEnum tipoSalaEnum;
+	private TipoSalaEnum tipo;
 
 	public Long getId() {
 		return id;
@@ -41,12 +41,12 @@ public class Sala {
 		this.nome = nome;
 	}
 
-	public TipoSalaEnum getTipoSalaEnum() {
-		return tipoSalaEnum;
+	public TipoSalaEnum getTipo() {
+		return tipo;
 	}
 
-	public void setTipoSalaEnum(TipoSalaEnum tipoSalaEnum) {
-		this.tipoSalaEnum = tipoSalaEnum;
+	public void setTipo(TipoSalaEnum tipo) {
+		this.tipo = tipo;
 	}
 
 }

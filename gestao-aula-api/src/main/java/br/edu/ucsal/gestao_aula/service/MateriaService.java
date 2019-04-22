@@ -28,4 +28,8 @@ public class MateriaService {
     public void deletar(Long id) {
         materiaRepository.deleteById(id);
     }
+
+    public List<Materia> findAll() {
+        return materiaRepository.findAll();
+    }
 }

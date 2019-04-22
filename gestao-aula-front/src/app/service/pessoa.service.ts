@@ -7,7 +7,11 @@ export class PessoaService {
   private url = '/api/pessoa';
   constructor(
     private data: DataService,
-    ) { }
+  ) { }
+
+  findAll(): Observable<any> {
+    return this.data.get(this.url + "/");
+  }
 
   salvar(pessoa): Observable<any> {
     return this.data.post(this.url + "/", pessoa);

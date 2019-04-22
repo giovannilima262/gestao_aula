@@ -20,7 +20,7 @@ public class Imprevisto {
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "STATUS_AUlA")
-	private StatusAulaEnum statusAulaEnum;
+	private StatusAulaEnum status;
 
 	@Column(name = "DESCRICAO", length = 100)
 	private String descricao;
@@ -33,12 +33,12 @@ public class Imprevisto {
 		this.id = id;
 	}
 
-	public StatusAulaEnum getStatusAulaEnum() {
-		return statusAulaEnum;
+	public StatusAulaEnum getStatus() {
+		return status;
 	}
 
-	public void setStatusAulaEnum(StatusAulaEnum statusAulaEnum) {
-		this.statusAulaEnum = statusAulaEnum;
+	public void setStatus(StatusAulaEnum status) {
+		this.status = status;
 	}
 
 	public String getDescricao() {

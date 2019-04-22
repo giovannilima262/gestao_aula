@@ -1,0 +1,103 @@
+<form [formGroup]="formGroup">
+
+  <mat-form-field appearance="outline" class="espaco">
+    <mat-label>Sala</mat-label>
+    <mat-select appearance="outline" formControlName="sala" name="sala" disabled>
+      <mat-option>Todos</mat-option>
+      <mat-option *ngFor="let sala of salas" [value]="sala.id">
+        {{sala.nome}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="espaco">
+    <mat-label>Curso</mat-label>
+    <mat-select appearance="outline" formControlName="curso" name="curso" disabled>
+      <mat-option>Todos</mat-option>
+      <mat-option *ngFor="let curso of cursoList" [value]="curso.id" (click)="selecionarCurso(curso.id)">
+        {{curso.nome}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="espaco">
+    <mat-label>Matéria</mat-label>
+    <mat-select appearance="outline" formControlName="materiaCurso" name="materiaCurso" disabled>
+      <mat-option>Todos</mat-option>
+      <mat-option *ngFor="let materiaCurso of materiaMateriaCursoList" [value]="materiaCurso.id">
+        {{materiaCurso.materia.nome}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="espaco">
+    <mat-label>Imprevisto</mat-label>
+    <mat-select appearance="outline" formControlName="imprevisto" name="imprevisto" disabled>
+      <mat-option>Todos</mat-option>
+      <mat-option *ngFor="let imprevisto of imprevistos" [value]="imprevisto.id">
+        {{imprevisto.descricao}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="espaco">
+    <mat-label>Data</mat-label>
+    <input matInput [matDatepicker]="picker" placeholder="Data" formControlName="data" disabled>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="espaco">
+    <mat-label>Horário Inicio</mat-label>
+    <input matInput formControlName="horarioInicio" placeholder="08:30" disabled>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="espaco">
+    <mat-label>Horário Fim</mat-label>
+    <input matInput formControlName="horarioFim" placeholder="10:30" disabled>
+  </mat-form-field>
+</form>
+<h4>Incluir Pessoas</h4>
+
+<mat-card>
+  <form [formGroup]="formGroupIncluir">
+    <mat-form-field appearance="outline" class="espaco">
+      <mat-label>Pessoa</mat-label>
+      <mat-select appearance="outline" formControlName="pessoa" name="pessoa">
+        <mat-option>Todos</mat-option>
+        <mat-option *ngFor="let pessoa of pessoas" [value]="pessoa.id">
+          {{pessoa.nome}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary" class="espaco" (click)="incluirPessoa()">Incluir</button>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef> Nome </th>
+          <td mat-cell *matCellDef="let element"> {{element.pessoa.nome}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tipo">
+          <th mat-header-cell *matHeaderCellDef> Tipo </th>
+          <td mat-cell *matCellDef="let element"> {{tipos[element.pessoa.tipo]}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="acoes">
+          <th mat-header-cell *matHeaderCellDef class="coluna-acoes"> Ações </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-raised-button (click)="deletarAulaPessoa(element.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </form>
+</mat-card>
+
+<div mat-dialog-actions class="center">
+  <button mat-button mat-stroked-button (click)="voltar()" color="primary">Voltar</button>
+</div>

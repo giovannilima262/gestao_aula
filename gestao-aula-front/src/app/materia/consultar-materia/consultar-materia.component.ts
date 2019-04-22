@@ -67,10 +67,10 @@ export class ConsultarMateriaComponent implements OnInit {
     });
   }
 
-  editarMateria(Materia: Materia) {
+  editarMateria(materia: Materia) {
     const dialogRef = this.dialog.open(SalvarMateriaComponent, {
       width: '480px',
-      data: Materia
+      data: materia
     });
     dialogRef.afterClosed().subscribe(_ => {
       this.buscarMateria();

@@ -27,4 +27,8 @@ public class PessoaService {
     public void deletar(Long id) {
         pessoaRepository.deleteById(id);
     }
+
+    public List<Pessoa> findAll() {
+        return pessoaRepository.findAll();
+    }
 }

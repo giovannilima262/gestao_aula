@@ -1,0 +1,19 @@
+<form [formGroup]="formGroup" (ngSubmit)=salvar()>
+  <mat-form-field appearance="outline" class="espaco">
+    <mat-label>Descrição</mat-label>
+    <input matInput formControlName="descricao" placeholder="Greve" required>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="espaco">
+    <mat-label>Status</mat-label>
+    <mat-select appearance="outline" formControlName="status" name="status" required>
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let key of keysTipos" [value]="key">
+        {{tipos[key]}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div mat-dialog-actions class="center">
+    <button mat-button cdkFocusInitial mat-raised-button color="primary" type="submit">Salvar</button>
+    <button mat-button mat-stroked-button [mat-dialog-close] color="primary">Cancelar</button>
+  </div>
+</form>

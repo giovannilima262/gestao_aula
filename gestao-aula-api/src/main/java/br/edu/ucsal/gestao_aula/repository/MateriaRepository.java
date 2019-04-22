@@ -8,6 +8,4 @@ import java.util.List;
 
 public interface MateriaRepository extends JpaRepository<Materia, Long> {
 
-    List<Materia> findByNomeOrderByNome(String nome);
-
 }

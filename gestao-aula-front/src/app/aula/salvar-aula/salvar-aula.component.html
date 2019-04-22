@@ -1,0 +1,59 @@
+<form [formGroup]="formGroup" (ngSubmit)=salvar()>
+  <mat-form-field appearance="outline" class="espaco">
+    <mat-label>Sala</mat-label>
+    <mat-select appearance="outline" formControlName="sala" name="sala" required>
+      <mat-option>Todos</mat-option>
+      <mat-option *ngFor="let sala of salas" [value]="sala.id">
+        {{sala.nome}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="espaco">
+    <mat-label>Curso</mat-label>
+    <mat-select appearance="outline" formControlName="curso" name="curso" required>
+      <mat-option>Todos</mat-option>
+      <mat-option *ngFor="let curso of cursoList" [value]="curso.id" (click)="selecionarCurso(curso.id)">
+        {{curso.nome}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="espaco">
+    <mat-label>Matéria</mat-label>
+    <mat-select appearance="outline" formControlName="materiaCurso" name="materiaCurso" required>
+      <mat-option>Todos</mat-option>
+      <mat-option *ngFor="let materiaCurso of materiaMateriaCursoList" [value]="materiaCurso.id">
+        {{materiaCurso.materia.nome}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="espaco">
+    <mat-label>Imprevisto</mat-label>
+    <mat-select appearance="outline" formControlName="imprevisto" name="imprevisto">
+      <mat-option>Todos</mat-option>
+      <mat-option *ngFor="let imprevisto of imprevistos" [value]="imprevisto.id">
+        {{imprevisto.descricao}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="espaco">
+    <mat-label>Data</mat-label>
+    <input matInput [matDatepicker]="picker" placeholder="Data" formControlName="data" required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="espaco">
+    <mat-label>Horário Inicio</mat-label>
+    <input matInput formControlName="horarioInicio" placeholder="08:30" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="espaco">
+    <mat-label>Horário Fim</mat-label>
+    <input matInput formControlName="horarioFim" placeholder="10:30" required>
+  </mat-form-field>
+  <div mat-dialog-actions class="center">
+    <button mat-button cdkFocusInitial mat-raised-button color="primary" type="submit">Salvar</button>
+    <button mat-button mat-stroked-button [mat-dialog-close] color="primary">Cancelar</button>
+  </div>
+</form>
