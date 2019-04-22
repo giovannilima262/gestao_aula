@@ -78,7 +78,7 @@ export class ConsultarAulaPessoaComponent implements OnInit {
       horarioInicio: [this.data.horarioInicio],
       horarioFim: [this.data.horarioFim]
     });
-
+    this.formGroup.disable();
     this.formGroupIncluir = this._formBuilder.group({
       pessoa: [],
     });
